@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novamart — Premium Online Shopping Platform</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-top sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">
+        <i class="bi bi-cart4 text-warning"></i> Nova<span class="logo-accent">mart</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMainContent" aria-controls="navMainContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMainContent">
+        <!-- Global Search Bar -->
+        <form class="d-flex mx-auto nav-search-bar my-2 my-lg-0" id="globalSearchForm">
+          <div class="input-group">
+            <input class="form-control" type="search" id="globalSearchInput" placeholder="Search for headphones, shoes, smartphones, apparel..." aria-label="Search">
+            <button class="btn btn-search" type="submit">
+              <i class="bi bi-search me-1"></i> Search
+            </button>
+          </div>
+        </form>
+
+        <!-- Right Action Links -->
+        <ul class="navbar-nav align-items-lg-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="products.html"><i class="bi bi-grid me-1"></i>Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="orders.html"><i class="bi bi-box-seam me-1"></i>My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom cart-btn-link" href="cart.html">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span class="d-lg-none">Cart</span>
+              <span class="cart-badge-pill" id="cartBadge">0</span>
+            </a>
+          </li>
+          <!-- User / Auth container populated via JavaScript -->
+          <li class="nav-item ms-lg-2" id="navUserContainer">
+            <a href="login.html" class="btn btn-outline-light btn-sm px-3">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Secondary Category Shortcut Strip -->
+  <div class="navbar-categories-bar">
+    <div class="container d-flex gap-2">
+      <a href="products.html"><i class="bi bi-list me-1"></i> All Categories</a>
+      <a href="products.html?categoryId=1"><i class="bi bi-laptop me-1"></i> Electronics</a>
+      <a href="products.html?categoryId=2"><i class="bi bi-gender-ambiguous me-1"></i> Fashion</a>
+      <a href="products.html?categoryId=3"><i class="bi bi-activity me-1"></i> Shoes</a>
+      <a href="products.html?categoryId=4"><i class="bi bi-house me-1"></i> Home Appliances</a>
+      <a href="products.html?categoryId=5"><i class="bi bi-stars me-1"></i> Beauty</a>
+      <a href="products.html?categoryId=6"><i class="bi bi-watch me-1"></i> Accessories</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <!-- Hero Banner Carousel -->
+      <div id="heroCarousel" class="carousel slide hero-banner-carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=80');">
+              <div class="hero-overlay"></div>
+              <div class="hero-content">
+                <span class="badge bg-warning text-dark px-3 py-2 fw-bold mb-2">LIMITED TIME OFFER</span>
+                <h1>Mega Electronics Clearance</h1>
+                <p>Discover flagship smartphones, high-resolution noise-canceling headphones, and ultrabooks up to 25% off.</p>
+                <div class="d-flex gap-3">
+                  <a href="products.html?categoryId=1" class="btn btn-warning btn-lg fw-bold px-4">Shop Electronics</a>
+                  <a href="products.html" class="btn btn-outline-light btn-lg px-4">Explore All</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1400&q=80');">
+              <div class="hero-overlay"></div>
+              <div class="hero-content">
+                <span class="badge bg-danger px-3 py-2 fw-bold mb-2">AUTUMN COLLECTION</span>
+                <h1>Modern Fashion & Designer Apparel</h1>
+                <p>Upgrade your everyday wardrobe with premium fabrics, tailored denim, and cozy merino knitwear.</p>
+                <div class="d-flex gap-3">
+                  <a href="products.html?categoryId=2" class="btn btn-danger btn-lg fw-bold px-4">Shop Fashion</a>
+                  <a href="products.html" class="btn btn-outline-light btn-lg px-4">All Deals</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80');">
+              <div class="hero-overlay"></div>
+              <div class="hero-content">
+                <span class="badge bg-primary px-3 py-2 fw-bold mb-2">ATHLETIC GEAR</span>
+                <h1>Step into Supreme Comfort</h1>
+                <p>Performance running footwear, leather boots, and classic casual sneakers designed for maximum durability.</p>
+                <div class="d-flex gap-3">
+                  <a href="products.html?categoryId=3" class="btn btn-primary btn-lg fw-bold px-4">Shop Shoes</a>
+                  <a href="products.html" class="btn btn-outline-light btn-lg px-4">Browse Catalog</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Trust Badges Strip -->
+      <div class="row g-3 my-4">
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-truck"></i>
+            <h5>Free Delivery</h5>
+            <p>On all qualifying orders over ₹500</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-shield-check"></i>
+            <h5>Safe Demo Pay</h5>
+            <p>Risk-free simulated checkout testing</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-arrow-repeat"></i>
+            <h5>7-Day Returns</h5>
+            <p>Hassle-free replacement policy</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-headset"></i>
+            <h5>24/7 Support</h5>
+            <p>Dedicated customer service team</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Categories Section -->
+      <section class="my-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3 class="fw-bold mb-0">Shop by Category</h3>
+            <p class="text-muted small mb-0">Browse through our handpicked product categories</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold">View All <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3" id="homeCategoriesGrid">
+          <!-- Populated dynamically via JS -->
+          <div class="col-12 text-center py-4">
+            <div class="spinner-border spinner-border-sm text-primary"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products Section -->
+      <section class="my-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3 class="fw-bold mb-0"><i class="bi bi-stars text-warning me-2"></i>Featured Products</h3>
+            <p class="text-muted small mb-0">Specially curated top-tier products chosen for you</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold">See More <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3" id="homeFeaturedGrid">
+          <div class="col-12 text-center py-4">
+            <div class="spinner-border text-primary"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Promo Banner CTA -->
+      <div class="p-4 p-md-5 my-5 rounded-3 text-white bg-dark shadow-sm" style="background: linear-gradient(135deg, #232f3e 0%, #131921 100%);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="badge bg-warning text-dark px-3 py-1 fw-bold mb-2">SPECIAL ANNOUNCEMENT</span>
+            <h2 class="display-6 fw-bold">Experience Lightning-Fast E-Commerce</h2>
+            <p class="lead text-light mb-0">Powered by modern Spring Boot 3 REST APIs, secure BCrypt authentication, server-validated shopping carts, and dynamic single-page interactions.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="products.html" class="btn btn-warning btn-lg fw-bold px-4 py-3 shadow">Explore Full Catalog</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending Products Section -->
+      <section class="my-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3 class="fw-bold mb-0"><i class="bi bi-fire text-danger me-2"></i>Trending Now</h3>
+            <p class="text-muted small mb-0">The hottest items creating a buzz this week</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold">View All <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3" id="homeTrendingGrid">
+          <div class="col-12 text-center py-4">
+            <div class="spinner-border text-primary"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best-Selling Products Section -->
+      <section class="my-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3 class="fw-bold mb-0"><i class="bi bi-trophy-fill text-warning me-2"></i>Best Sellers</h3>
+            <p class="text-muted small mb-0">Customer favorites with highest ratings and sales</p>
+          </div>
+          <a href="products.html" class="text-decoration-none fw-semibold">View All <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3" id="homeBestSellersGrid">
+          <div class="col-12 text-center py-4">
+            <div class="spinner-border text-primary"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="text-white fw-bold mb-3">
+            <i class="bi bi-cart4 text-warning"></i> Nova<span class="text-warning">mart</span>
+          </h5>
+          <p class="small text-secondary">
+            Novamart is a modern, responsive full-stack e-commerce shopping platform built using Java Spring Boot 3, Spring Data JPA, Spring Security, and MySQL.
+          </p>
+          <div class="d-flex gap-3 fs-5 mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h6 class="text-white fw-bold mb-3">Categories</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="products.html?categoryId=1">Electronics</a></li>
+            <li class="mb-2"><a href="products.html?categoryId=2">Fashion</a></li>
+            <li class="mb-2"><a href="products.html?categoryId=3">Shoes</a></li>
+            <li class="mb-2"><a href="products.html?categoryId=4">Home Appliances</a></li>
+            <li class="mb-2"><a href="products.html?categoryId=5">Beauty & Fragrance</a></li>
+            <li class="mb-2"><a href="products.html?categoryId=6">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h6 class="text-white fw-bold mb-3">Customer Support</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="orders.html">Track Orders</a></li>
+            <li class="mb-2"><a href="cart.html">View Cart</a></li>
+            <li class="mb-2"><a href="profile.html">My Profile</a></li>
+            <li class="mb-2"><a href="#">Shipping Policies</a></li>
+            <li class="mb-2"><a href="#">Returns & Refunds</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h6 class="text-white fw-bold mb-3">Stay Connected</h6>
+          <p class="small text-secondary">Subscribe to get notified about flash sales, discount coupons, and new product launches.</p>
+          <div class="input-group mb-2">
+            <input type="email" class="form-control" placeholder="Enter your email address">
+            <button class="btn btn-warning fw-bold" type="button">Subscribe</button>
+          </div>
+          <div class="small text-secondary mt-2">
+            <i class="bi bi-shield-check text-success me-1"></i>We respect your privacy. No spam ever.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0 text-secondary">&copy; 2026 Novamart Inc. All rights reserved. Built with Java 21, Spring Boot 3, and Bootstrap 5.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- App JS -->
+  <script src="js/app.js"></script>
+  <!-- Home Page Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Load Categories
+      try {
+        const catRes = await apiRequest('/categories');
+        const catGrid = document.getElementById('homeCategoriesGrid');
+        if (catRes && catRes.data && catGrid) {
+          catGrid.innerHTML = catRes.data.map(c => `
+            <div class="col-6 col-md-4 col-lg-2">
+              <a href="products.html?categoryId=${c.id}" class="category-card">
+                <div class="category-img-wrapper">
+                  <img src="${c.imageUrl || DEFAULT_PRODUCT_IMAGE}" alt="${c.name}" onerror="this.onerror=null;this.src='${DEFAULT_PRODUCT_IMAGE}'">
+                </div>
+                <h6 class="category-name">${c.name}</h6>
+                <div class="text-muted small">${c.productCount} items</div>
+              </a>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.error('Failed to load categories', err);
+      }
+
+      // 2. Load Featured Products
+      loadSectionProducts('/products/featured', 'homeFeaturedGrid');
+
+      // 3. Load Trending Products
+      loadSectionProducts('/products/trending', 'homeTrendingGrid');
+
+      // 4. Load Best Sellers
+      loadSectionProducts('/products/best-sellers', 'homeBestSellersGrid');
+    });
+
+    async function loadSectionProducts(endpoint, targetElementId) {
+      const container = document.getElementById(targetElementId);
+      if (!container) return;
+
+      try {
+        const res = await apiRequest(endpoint);
+        const products = res.data || [];
+
+        if (products.length === 0) {
+          container.innerHTML = `<div class="col-12 text-center text-muted py-3">No products available in this section.</div>`;
+          return;
+        }
+
+        // Show up to 4 items in section
+        container.innerHTML = products.slice(0, 4).map(p => `
+          <div class="col-sm-6 col-lg-3 mb-3">
+            <div class="product-card">
+              <div class="product-badge-group">
+                ${p.discountPercent > 0 ? `<span class="badge-discount">${p.discountPercent}% OFF</span>` : ''}
+              </div>
+              <div class="product-img-box">
+                <img src="${p.imageUrl || DEFAULT_PRODUCT_IMAGE}" alt="${p.name}" onerror="this.onerror=null;this.src='${DEFAULT_PRODUCT_IMAGE}'">
+              </div>
+              <div class="product-body">
+                <div class="product-category-tag">${p.category ? p.category.name : 'Store'}</div>
+                <a href="product-details.html?id=${p.id}" class="product-title" title="${p.name}">${p.name}</a>
+                <div class="product-rating">
+                  <span class="rating-stars">${renderStars(p.rating)}</span>
+                  <span class="rating-count">(${p.reviewCount})</span>
+                </div>
+                <div class="product-pricing">
+                  <span class="price-final">${formatCurrency(p.discountedPrice)}</span>
+                  ${p.discountPercent > 0 ? `<span class="price-orig">${formatCurrency(p.price)}</span>` : ''}
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-add-cart" onclick="handleAddToCart(${p.id}, 1)">
+                    <i class="bi bi-cart-plus"></i> Add
+                  </button>
+                  <a href="product-details.html?id=${p.id}" class="btn btn-view-product" title="View Details">
+                    <i class="bi bi-eye"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = `<div class="col-12 text-danger text-center py-2">Failed to load: ${err.message}</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

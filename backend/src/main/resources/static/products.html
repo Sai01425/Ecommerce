@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products — Novamart Catalog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-top sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">
+        <i class="bi bi-cart4 text-warning"></i> Nova<span class="logo-accent">mart</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMainContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMainContent">
+        <form class="d-flex mx-auto nav-search-bar my-2 my-lg-0" id="globalSearchForm">
+          <div class="input-group">
+            <input class="form-control" type="search" id="globalSearchInput" placeholder="Search products..." aria-label="Search">
+            <button class="btn btn-search" type="submit">
+              <i class="bi bi-search me-1"></i> Search
+            </button>
+          </div>
+        </form>
+
+        <ul class="navbar-nav align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="orders.html">My Orders</a></li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom cart-btn-link" href="cart.html">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span class="d-lg-none">Cart</span>
+              <span class="cart-badge-pill" id="cartBadge">0</span>
+            </a>
+          </li>
+          <li class="nav-item ms-lg-2" id="navUserContainer">
+            <a href="login.html" class="btn btn-outline-light btn-sm px-3">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Secondary Strip -->
+  <div class="navbar-categories-bar">
+    <div class="container d-flex gap-2">
+      <a href="products.html"><i class="bi bi-list me-1"></i> All Products</a>
+      <a href="products.html?categoryId=1">Electronics</a>
+      <a href="products.html?categoryId=2">Fashion</a>
+      <a href="products.html?categoryId=3">Shoes</a>
+      <a href="products.html?categoryId=4">Home Appliances</a>
+      <a href="products.html?categoryId=5">Beauty</a>
+      <a href="products.html?categoryId=6">Accessories</a>
+    </div>
+  </div>
+
+  <main class="py-4">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Products</li>
+        </ol>
+      </nav>
+
+      <div class="row g-4">
+        <!-- Sidebar Filters -->
+        <div class="col-lg-3">
+          <div class="card border-0 shadow-sm rounded-3 p-3 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+              <h5 class="fw-bold mb-0"><i class="bi bi-funnel me-1"></i>Filters</h5>
+              <button class="btn btn-link btn-sm text-decoration-none text-muted p-0" onclick="resetFilters()">Reset All</button>
+            </div>
+
+            <!-- Keyword Search in Filter -->
+            <div class="mb-4">
+              <label class="form-label fw-bold small text-muted">Search Keyword</label>
+              <form id="filterSearchForm">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" id="filterSearchInput" placeholder="Filter by name...">
+                  <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Category Radio Group -->
+            <div class="mb-4">
+              <label class="form-label fw-bold small text-muted">Categories</label>
+              <div id="categoryFilterList">
+                <div class="spinner-border spinner-border-sm text-primary"></div>
+              </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-muted">Price Range (₹)</label>
+              <form id="priceFilterForm">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <input type="number" class="form-control form-control-sm" id="minPriceInput" placeholder="Min" min="0">
+                  <span class="text-muted">-</span>
+                  <input type="number" class="form-control form-control-sm" id="maxPriceInput" placeholder="Max" min="0">
+                </div>
+                <button type="submit" class="btn btn-outline-primary btn-sm w-100 fw-semibold">Apply Price</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Main Product Grid & Controls -->
+        <div class="col-lg-9">
+          <!-- Top Sort & Results Bar -->
+          <div class="card border-0 shadow-sm rounded-3 p-3 mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div class="text-muted small fw-medium" id="productResultsCount">
+                Loading products...
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <label for="sortSelect" class="small fw-bold text-muted text-nowrap mb-0">Sort By:</label>
+                <select class="form-select form-select-sm" id="sortSelect" style="width: 170px;">
+                  <option value="default">Featured / Newest</option>
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
+                  <option value="rating">Customer Rating</option>
+                  <option value="newest">Recently Added</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="row g-3" id="productsGrid">
+            <!-- Dynamic product cards -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="mt-4" id="paginationContainer">
+            <!-- Dynamic pagination -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-0 text-secondary small">&copy; 2026 Novamart Inc. All rights reserved. Spring Boot REST API & Bootstrap 5 Frontend.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
